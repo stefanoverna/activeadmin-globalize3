@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module ActiveAdmin
   module Globalize3
     module FilterEmptyTranslations
@@ -36,13 +37,13 @@ module ActiveAdmin
         if model_class.nil? or not model_class.translates?
           return
         end
-        model = controller_name.singularize.to_sym        
-        params[model][:translations_attributes].each do |t|
-          if !(t.last.map { |_, v| v.empty? ? true : false }[2..-1]).include?(false)
-            if t.last[:id].empty?
-              params[model][:translations_attributes].delete(t.first)
+        model = controller_name.singularize.to_sym
+        params[model][:translations_attributes].each do |k,v|
+          if v.values[2..-1].all?(&:blank?)
+            if v[:id].empty?
+              params[model][:translations_attributes].delete(k)
             else
-              params[model][:translations_attributes][t.first]['_destroy'] = '1'
+              params[model][:translations_attributes][k]['_destroy'] = '1'
             end
           end
         end
