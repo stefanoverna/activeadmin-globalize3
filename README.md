@@ -28,7 +28,7 @@ index do
   # ...
   translation_status
   # ...
-  default_actions
+  actions
 end
 
 form do |f|
