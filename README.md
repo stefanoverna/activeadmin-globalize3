@@ -21,7 +21,7 @@ end
 
 ```ruby
 # if you are using Rails 4 or Strong Parameters:
-permit_params translations_attributes: [:locale, :title, :content]
+permit_params translations_attributes: [:locale, :id, :title, :content]
 
 
 index do
