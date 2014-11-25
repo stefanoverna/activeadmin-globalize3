@@ -40,7 +40,6 @@ module ActiveAdmin
             )
           end.join.html_safe
         end
-        template.concat(html) unless self.respond_to?(:form_buffers)
       end
 
       module ClassMethods
