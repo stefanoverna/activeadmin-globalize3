@@ -22,13 +22,13 @@ module ActiveAdmin
             translation ||= object.translations.build(locale: locale)
             fields = proc do |form|
               form.input(:locale, as: :hidden)
-              form.input(:id, as: :hidden)
+              form.input(:id, as: :hidden) if translation.persisted?
               I18n.with_locale(switch_locale ? locale : I18n.locale) do
                 block.call(form)
               end
             end
             inputs_for_nested_attributes(
-              for: [:translations, translation ],
+              for: [:translations, translation],
               class: "inputs locale locale-#{translation.locale}",
               &fields
             )
