@@ -2,5 +2,5 @@ source "https://rubygems.org"
 
 gemspec
 
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'master'
+gem 'activeadmin', github: 'activeadmin', branch: 'master'
 
